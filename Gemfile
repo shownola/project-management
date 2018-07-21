@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'pg'
 gem 'devise'
 gem 'milia'
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
 
 group :development, :test do
   # gem 'sqlite3'
