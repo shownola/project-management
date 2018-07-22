@@ -1,0 +1,144 @@
+$green: #1CA66E;
+$blue: #8195BB;
+$lavender: #C8BBC9;
+$maroon: #6C4649;
+$light-lavender: #ebebfb;
+
+$dark-pink: #E0ABAB;
+$pink: #E1B8B9;
+$gray: #9B9990;
+$steel: #F0F1F3;
+$dark-gray: #4C4131;
+$gold: #F2E4AE;
+
+@import url('https://fonts.googleapis.com/css?family=Paprika|Rouge+Script');
+
+@import url('https://fonts.googleapis.com/css?family=Paprika');
+
+body {
+ background: $steel !important;
+}
+
+.jumbotron {
+  text-align: center;
+  background-image: asset-url('pinkphone1.jpg');
+  background-size: cover;
+  color: #fff;
+  height: 600px;
+  margin-top: 10px;
+  font-stretch: expanded;
+  margin-left: 15px;
+  margin-right: 15px;
+  text-shadow: -1px 0 #555, 0 1px #555, 1px 0 #555, 0 -1px #555;
+}
+.bg-lav {
+  background: $dark-pink;
+}
+.nav-item .nav-link {
+  color: $gold !important;
+  font-weight: 500;
+  font-size: 20px;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+.navbar {
+  margin-bottom: 10px !important;
+  .nav-link {
+    color: $gold !important;
+    font-size: 18px;
+  }
+}
+.navbar-brand {
+  color: $gold;
+  font-family: 'Paprika', cursive;
+}
+#logo {
+  color: #F4E5B0 !important;
+  font-family: 'Rouge Script', cursive;
+  font-size: 2em;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+  font-weight: 600;
+}
+.btn-default {
+  background: $pink;
+  color: $gold;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+.btn-default:hover {
+  color: #fff;
+  }
+.btn-outline-default {
+  color: $gold;
+  background: $pink;
+   text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+.card-header {
+  background: $pink !important;
+}
+.jumbotron-heading {
+  margin-left: 20px;
+  margin-top: 100px;
+  font-family: 'Paprika', cursive;
+  color: $gold;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+  font-size: 5em;
+  font-weight: 600;
+}
+.new-container {
+  padding-top: 65px;
+}
+.no-left-padding {
+  padding-left: 5px !important;
+}
+.no-right-padding {
+  padding-right: 5px !important;
+}
+
+
+/* svg animation */
+
+@-webkit-keyframes drawIn {
+  0% {
+    stroke: transparent;
+    stroke-dashoffset: 10000;
+  }
+  75% {
+    stroke: white;
+  }
+}
+@keyframes drawIn {
+  0% {
+    stroke: transparent;
+    stroke-dashoffset: 10000;
+  }
+  75% {
+    stroke: white;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  // background: #f2f2f2;
+}
+svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  width: 550px;
+}
+.mask-path {
+  stroke: white;
+  stroke-dasharray: 10000;
+  -webkit-animation: drawIn 2.5s 1s ease-in both;
+          animation: drawIn 2.5s 1s ease-in both;
+}
+

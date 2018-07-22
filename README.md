@@ -6,4 +6,6 @@
 * Email using Sendgrid
 * Multi-tenancy handled using the Milia gem
 * Authentication via Devise
+* Bootstrap 4
+* Animated Text
 * 
