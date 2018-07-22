@@ -73,6 +73,26 @@ body {
   background: $pink;
    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
+.btn-gray {
+  background: $gray;
+  color: $gold;
+}
+.btn-gray:hover {
+  color: #fff;
+  background: $dark-gray;
+}
+.btn-gray:active {
+  background-color: $gray;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.email {
+  color: $gold;
+}
+ .email:hover {
+    color: $gray;
+  }
 .card-header {
   background: $pink !important;
 }
@@ -88,7 +108,7 @@ body {
   font-weight: 600;
 }
 .new-container {
-  padding-top: 65px;
+  padding-top: 70px;
 }
 .no-left-padding {
   padding-left: 5px !important;
@@ -96,7 +116,17 @@ body {
 .no-right-padding {
   padding-right: 5px !important;
 }
-
+.display-3, .display-2{
+  color: $gray;
+}
+.table tr td {
+  a.main-link {
+    color: $pink;
+  }
+}
+.main-link:hover {
+  background: none;
+}
 
 /* svg animation */
 

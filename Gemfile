@@ -37,6 +37,7 @@ gem 'devise'
 gem 'milia'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   # gem 'sqlite3'

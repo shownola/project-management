@@ -8,4 +8,4 @@
 * Authentication via Devise
 * Bootstrap 4
 * Animated Text
-* 
+* Datepicker 

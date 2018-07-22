@@ -1,3 +1,12 @@
+
+
+<% if current_user %>
+<div class="container new-container">
+  <h3 align="center" class="display-3">Organization: <%= @tenant.name %></h3>
+  <%= render 'projects/list' %>
+  </div>
+<% else %>
+
  <section class="jumbotron text-center">
   <div class="container">
     <h1 class="jumbotron-heading">PROJECT MANAGEMENT</h1>
@@ -58,4 +67,6 @@
             <button type="button" class="btn btn-lg btn-block btn-default">Contact us</button>
           </div>
         </div>
+      <% end %>
       </div>
+  

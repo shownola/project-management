@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container new-container">
+
+<h1 align="center" class="display-3">Projects</h1>
+
+<% if @projects.size > 0 %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Details</th>
+        <th>Expected completion date</th>
+        <th>Tenant</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td><%= link_to project.title, tenant_project_path(project, tenant_id: @tenant.id, class: 'main-link') %></td>
+          <td><%= project.details %></td>
+          <td><%= project.expected_completion_date %></td>
+          <td><%= tenant_name project.tenant_id %></td>
+          
+          
+          <td><%= link_to 'Edit', edit_tenant_project_path(project, tenant_id: @tenant.id), class: 'btn btn-xs btn-gray' %></td>
+          <td><%= link_to 'Destroy', tenant_project_path(project, tenant_id: @tenant.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br />
+<% else %>
+  <p class="lead">You don't have any projects!</p>
+<% end %>
+
+<% if (@tenant.can_create_project?) %>
+  <%= link_to 'New Project', new_tenant_project_path(tenant_id: @tenant.id), class: 'btn btn-default' %>
+<% end %>
+
+
+</div>

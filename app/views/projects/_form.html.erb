@@ -1,0 +1,45 @@
+<div class="container new-container">
+
+  <%= form_for [@tenant, @project], local: true do |form| %>
+    <% if project.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+  
+        <ul>
+        <% project.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field form-group">
+      <%= form.label :title %>
+      <%= form.text_field :title, id: :project_title, class: 'form-control' %>
+    </div>
+  
+    <div class="field form-group">
+      <%= form.label :details %>
+      <%= form.text_field :details, id: :project_details, class: 'form-control' %>
+    </div>
+  
+    <div class="field form-group">
+      <%= form.label :expected_completion_date %>
+      <%= form.date_field :expected_completion_date, id: :project_expected_completion_date, class: ' form-control datepicker' %>
+    </div>
+  
+    <!--<div class="field form-group">-->
+    <!--  <%= form.label :tenant_id %>-->
+    <!--  <%= form.text_field :tenant_id, id: :project_tenant_id, class: 'form-control' %>-->
+    <!--</div>-->
+    
+    <%= form.hidden_field :tenant_id, value: params[:tenant_id], class: 'form-control' %>
+    <div class="actions form-group">
+      <%= form.submit %>
+    </div>
+    
+    <div>
+      <%= link_to 'cancel', root_path, class: 'btn btn-default' %>
+    </div>
+  <% end %>
+</div>

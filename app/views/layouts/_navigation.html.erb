@@ -30,7 +30,7 @@
       
       <% if current_user %>
         <li class="nav-item">
-          <%= link_toi "<i class='fa fa-users'></i> Add Members".html_safe, new_member_path, class: 'nav-link btn btn-default' %>
+          <%= link_to "<i class='fa fa-users'></i> Add Members".html_safe, new_member_path, class: 'nav-link btn btn-gray' %>
         </li>
       <% end %>
     </ul>
@@ -41,10 +41,10 @@
      
       <% if current_user %>
       <li class="col-md-8 user-name">
-        <%= link_to ('<i class="fa fa-user"></i>' + ' ' + truncate(current_user.email, length: 25)).html_safe, edit_user_registration_path, title: 'Edit Profile' %>
+        <%= link_to ('<i class="fa fa-user"></i>' + ' ' + truncate(current_user.email, length: 25)).html_safe, edit_user_registration_path, title: 'Edit Profile',class: 'email' %>
       </li>
       <li class="col-md-1">&nbsp;</li>
-      <li class="col-md-3 logout"><%= link_to 'Logout', destroy_user_session_path, class: 'btn btn-xs btn-danger', title: 'Logout', method: :delete %></li>
+      <li class="col-md-3 logout"><%= link_to 'Logout', destroy_user_session_path, class: 'btn btn-xs btn-gray', title: 'Logout', method: :delete %></li>
       <% else %>
       <li class="col-md-4 pull-right">
         <%= link_to('Sign In', new_user_session_path, class: 'btn btn-xs btn-default', title: 'Sign In') %>
