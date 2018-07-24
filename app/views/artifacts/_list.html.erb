@@ -19,7 +19,7 @@
         <tr>
           <td><%= link_to artifact.name, artifact_path(artifact), class: 'main-link' %></td>
           <td><%= s3_link Tenant.current_tenant_id, artifact.key %></td>
-          <td><%= artifact.project %></td>
+          <td><%= artifact.project.title %></td>
           <td><%= link_to 'Show', artifact %></td>
           <!--<td><%= link_to 'Edit', edit_artifact_path(artifact) %></td>-->
           <td><%= link_to 'Destroy', artifact_path(artifact), method: :delete, data: { confirm: 'Are you sure?' } %></td>

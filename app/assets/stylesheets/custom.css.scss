@@ -108,7 +108,7 @@ body {
   font-weight: 600;
 }
 .new-container {
-  padding-top: 70px;
+  padding-top: 75px;
 }
 .no-left-padding {
   padding-left: 5px !important;
@@ -126,6 +126,15 @@ body {
 }
 .main-link:hover {
   background: none;
+}
+#proj-link {
+  color: $dark-pink;
+}
+#proj-link:hover {
+  color: $gray;
+}
+.script-title {
+  font-family: 'Rouge Script', cursive;
 }
 
 /* svg animation */

@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @artifact.name %>
-</p>
+<div class="container new-container">
 
-<p>
-  <strong>Key:</strong>
-  <%= @artifact.key %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @artifact.name %>
+  </p>
+  
+  <p>
+    <strong>Key:</strong>
+    <%= @artifact.key %>
+  </p>
+  
+  <p>
+    <strong>Project:</strong>
+    <%= @artifact.project %>
+  </p>
+  
+  <%= link_to 'Edit', edit_artifact_path(@artifact) %> |
+  <%= link_to 'Back', artifacts_path %>
 
-<p>
-  <strong>Project:</strong>
-  <%= @artifact.project %>
-</p>
-
-<%= link_to 'Edit', edit_artifact_path(@artifact) %> |
-<%= link_to 'Back', artifacts_path %>
+</div>
