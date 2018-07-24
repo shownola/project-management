@@ -3,6 +3,8 @@ class Project < ApplicationRecord
   validates_uniqueness_of :title
   has_many :artifacts, dependent: :destroy
   validate :free_plan_can_only_have_five_projects
+  validates :title, :details, :expected_completion_date, presence: true
+  
   
   def free_plan_can_only_have_five_projects
     if self.new_record? && (tenant.projects.count > 5) && (tenant.plan == 'free')
@@ -19,3 +21,5 @@ class Project < ApplicationRecord
     end
   end
 end
+
+
