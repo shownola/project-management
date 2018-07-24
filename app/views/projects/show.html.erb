@@ -25,6 +25,10 @@
     <%= tenant_name @project.tenant_id %> | <%= @project.tenant_id %>
   </p>
   
+  <h3>Artifacts</h3>
+  <%= render 'artifacts/list', artifacts: @project.artifacts %>
+  <br />
+  
   <%= link_to 'Edit', edit_tenant_project_path(project: @project, tenant: @project.tenant_id), class: 'btn btn-default' %> |
   <%= link_to 'Back to Organization Home', root_path, class: 'btn btn-default' %> |
   <%= link_to 'Delete', tenant_project_path(@project, @project.tenant_id), method: :delete, data: {confirm: 'Are you sure you want to delete this project?'}, class: 'btn btn-danger' %>

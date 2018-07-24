@@ -9,3 +9,5 @@
 * Bootstrap 4
 * Animated Text
 * Datepicker 
+* file/image upload and storage using AWS S3 Buckets
+* 
