@@ -10,4 +10,5 @@
 * Animated Text
 * Datepicker 
 * file/image upload and storage using AWS S3 Buckets
-* 
+* Admin Users
+* Stripe for credit card processing
