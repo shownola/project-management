@@ -9,6 +9,10 @@ class TenantsController < ApplicationController
   def edit
   end
   
+  def show
+    @tenant = Tenant.find(params[:id])
+  end
+  
   def update
     respond_to do |format|
       Tenant.transaction do
@@ -27,7 +31,8 @@ class TenantsController < ApplicationController
               redirect_to edit_tenant_path(@tenant) and return
             end
           end
-          format.html { redirect_to edit_plan_path, notice: 'Plan was successfully updated' }
+          # format.html { redirect_to edit_plan_path, notice: 'Plan was successfully updated' }
+          format.html { redirect_to root_path, notice: 'Plan was successfully updated' }
         else
           format.html { render :edit }
         end
@@ -39,7 +44,7 @@ class TenantsController < ApplicationController
     @tenant = Tenant.find(params[:id])
     Tenant.set_current_tenant @tenant.id
     session[:tenant_id] = Tenant.current_tenant.id
-    redirect_to home_index, notice: "Switched to organization #{@tenant.name}"
+    redirect_to home_index_path, notice: "Switched to organization #{@tenant.name}"
   end
   
   private

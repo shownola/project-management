@@ -7,6 +7,7 @@ $light-lavender: #ebebfb;
 $dark-pink: #E0ABAB;
 $pink: #E1B8B9;
 $gray: #9B9990;
+$red: #DB7093;
 $steel: #F0F1F3;
 $dark-gray: #4C4131;
 $gold: #F2E4AE;
@@ -119,7 +120,7 @@ body {
 .no-right-padding {
   padding-right: 5px !important;
 }
-.display-3, .display-2{
+.display-3, .display-2, .display-4 {
   color: $gray;
 }
 .table tr td {
@@ -138,6 +139,18 @@ body {
 }
 .script-title {
   font-family: 'Rouge Script', cursive;
+}
+.tenants-link {
+  color: $red;
+}
+.tenants-link:hover {
+  color: $dark-pink;
+}
+.tenants {
+  color: $gray;
+}
+.tenants:hover {
+  color: $dark-pink;
 }
 
 /* svg animation */

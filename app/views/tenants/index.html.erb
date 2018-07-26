@@ -1,5 +1,26 @@
-<div class="container new container">
-  <%= @tenants.each do %>
-    <%= tenant.name %>
+<div class="container new-container">
+  <div class="tenants">
+    <h1 align="center" class="display-3"> List of Tenants</h1>
+   
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Plan</th>
+      <th>Created</th>
+    </tr>
+  
+  
+  <% @tenants.each do |tenant|%>
+    <tr>
+      <td><%= link_to tenant.name, tenant_path(tenant), class: 'tenants-link' %></td>
+      <td><%= link_to tenant.plan, edit_plan_path, class: 'tenants' %></td>
+      <td><%= tenant.created_at %></td>
+    </tr>
+    
   <% end %>
+  
+  </table>
+ </div>
 </div>
+
+

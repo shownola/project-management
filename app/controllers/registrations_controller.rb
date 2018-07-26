@@ -1,5 +1,5 @@
-class RegistrationsController < ::Milia::RegistrationsController
 
+class RegistrationsController < ::Milia::RegistrationsController
   skip_before_action :authenticate_tenant!, :only => [:new, :create, :cancel]
 
 # ------------------------------------------------------------------------------
@@ -28,6 +28,7 @@ class RegistrationsController < ::Milia::RegistrationsController
       Tenant.transaction  do
         @tenant = Tenant.create_new_tenant( tenant_params, user_params, coupon_params)
         if @tenant.errors.empty?   # tenant created
+        
           if @tenant.plan == 'premium'
             @payment = Payment.new({ email: user_params['email'], token: params[:payment]['token'], tenant: @tenant })
             flash[:error] = 'Please check registration errors' unless @payment.valid?
@@ -42,15 +43,16 @@ class RegistrationsController < ::Milia::RegistrationsController
               render :new and return
             end
           end
-          
-         else
+            
+        else
           resource.valid?
           log_action( "tenant create failed", @tenant )
           render :new
         end # if .. then .. else no tenant errors
         
-        if flash[:error].blank? || flash[:error].empty? #payment successful
+        if flash[:error].blank? || flash[:error].empty?  # payment successful
         
+  
           initiate_tenant( @tenant )    # first time stuff for new tenant
   
           devise_create( user_params )   # devise resource(user) creation; sets resource
@@ -67,12 +69,13 @@ class RegistrationsController < ::Milia::RegistrationsController
           end  # if..then..else for valid user creation
         else
           resource.valid?
-          log_action('Payment proecessing failed', @tenant)
-          render :new and return 
-        end  # if .. then .. else no tenant errors
+          log_action('Payment processing failed', @tenant)
+          render :new and return      # if .. then .. else .. no tenant errors
+        end
   
-       
-        end  #  wrap tenant/user creation in a transaction
+        
+  
+      end  #  wrap tenant/user creation in a transaction
   
     else
       flash[:error] = "Recaptcha codes didn't match; please try again"
@@ -186,3 +189,4 @@ class RegistrationsController < ::Milia::RegistrationsController
   # ------------------------------------------------------------------------------
 
 end   # class Registrations
+

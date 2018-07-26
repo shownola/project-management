@@ -27,7 +27,9 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-    @project.users << current_user
+    # @project.user << current_user
+    
+    @project_user = UserProject.create!(user_id: current_user.id, project_id: @project.id)
 
     respond_to do |format|
       if @project.save
@@ -35,7 +37,7 @@ class ProjectsController < ApplicationController
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        
       end
     end
   end
@@ -49,7 +51,7 @@ class ProjectsController < ApplicationController
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        
       end
     end
   end
@@ -66,7 +68,7 @@ class ProjectsController < ApplicationController
   
   def users
     @project_users = (@project.users + (User.where(tenant_id: @tenant.id, is_admin: true))) - [current_user]
-    @other_users = @tenant.users.where(tenant_id: @tenant.id, is_admin: false) - (@project_users + [current_user])
+    @other_users = @tenant.users.where(is_admin: false) - (@project_users + [current_user])
   end
   
   def add_user
@@ -78,6 +80,7 @@ class ProjectsController < ApplicationController
       else
         format.html { redirect_to users_tenant_project_url(id: @project.id, tenant_id: @project.tenant_id), error: 'User was not added to project' }
       end
+    end
   end
 
   private
@@ -100,4 +103,5 @@ class ProjectsController < ApplicationController
       redirect_to :root, flash: { error: 'You are not authorized to access any organization other than your own.' }
       end
     end
+ 
 end

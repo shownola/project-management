@@ -5,7 +5,7 @@ class Project < ApplicationRecord
   has_many :user_projects
   has_many :users, through: :user_projects
   validate :free_plan_can_only_have_five_projects
-  validates :title, :details, :expected_completion_date, presence: true
+  # validates :title, :details, :expected_completion_date, presence: true
   
   
   def free_plan_can_only_have_five_projects
@@ -26,7 +26,7 @@ class Project < ApplicationRecord
       if user.is_admin?
         tenant.projects.order(:id).limit(5)
       else
-        user.projects_where(tenant_id: tenant.id).order(:id).limit(5)
+        user.projects.where(tenant_id: tenant.id).order(:id).limit(5)
       end
     end
   end

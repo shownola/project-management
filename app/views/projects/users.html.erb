@@ -1,6 +1,6 @@
 <div class="container new-container">
   <div class="page-header">
-    <h3 class="display-3">Users for Project <%= @project.title %></h3>
+    <h3 class="display-3" align="center">Users for Project <%= @project.title %></h3>
     <strong>(Other than yourself)</strong>
   </div>
   
@@ -8,7 +8,8 @@
     <thead>
       <tr>
         <th>Email</th>
-        <th><%= t '.actions', :default => t('helper.actions') %></th>
+        
+        <th><%= t '.actions', :default => t('helpers.actions') %></th>
       </tr>
     </thead>
     
@@ -22,23 +23,25 @@
           <% end %>
         </td>
       </tr>
+      <% end %>
     </tbody>
   </table>
   
-  <h3 class="display-4">Users to add to Project <%= @project.title %></h3>
+  <h3 class="display-4" align="center">Users to add to Project <%= @project.title %></h3>
   <strong>(Admins don't need to be added!)</strong>
   <table class="table table-striped">
     <thead>
       <tr>
         <th>Email</th>
+        
         <th><%= t '.actions', :default => t('helpers.actions') %></th>
       </tr>
     </thead>
     <tbody>
-      <%= @other_users.each do |other_user| %>
+      <% @other_users.each do |other_user| %>
       <tr>
         <td><%= other_user.email %></td>
-        <td><%= link_to 'Add', add_user_tenant_project_path(id: @project.id, tenant_id: @project.tenant_id, user_id: other_user.id), method: :put, class: 'btn btn-xs btn-success' %></td>
+        <td><%= link_to 'Add', add_user_tenant_project_path(id: @project.id, tenant_id: @project.tenant_id, user_id: other_user.id), method: :put, class: 'btn btn-xs btn-gray' %></td>
       </tr>
       <% end %>
     </tbody>
